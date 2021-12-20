@@ -12,9 +12,10 @@ fetch(queryUrl)
     console.log(data);
 
 
- for (var i=0; i < data.length; i++) {
+ for (var i=0; i < data.results.length; i++) {
      var movieID = data.results[i]
      console.log(movieID)
+    //  console.log(data.results)
  }
 });
  
