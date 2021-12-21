@@ -35,7 +35,7 @@ function testSearch(turnSplitArrayToString){
 // console.log(testArray.join("%20"));
 // var inputValue = document.querySelector("#searchInput")
 
-var queryUrlTwo = 'https://api.watchmode.com/v1/search/?apiKey=Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w&search_field=name&search_value=' + turnSplitArrayToString;
+var queryUrlTwo = 'https://api.watchmode.com/v1/networks/?apiKey=Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w&search_field=name&search_value=' + turnSplitArrayToString;
 fetch(queryUrlTwo)
 .then (function (response) {
     return response.json();
