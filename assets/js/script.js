@@ -4,37 +4,24 @@ var watchModeApiKey = 'Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w'
 
 
 var sButton = document.getElementById('sButton');
-sButton.addEventListener('click', function (event) {
+
+function getTitle(event) {
     event.preventDefault();
     var movieTitle = document.getElementById('inlineFormInputName').value;
-    console.log(movieTitle);
-    getTitle(movieTitle);
-})
 
-function getTitle(movieTitle) { ///// IMDB API CALL //////
-    var queryUrl = 'https://imdb-api.com/en/API/SearchTitle/' + imdbApiKey + '/' + movieTitle + '/';
-    fetch(queryUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            var mID = data.results[0].id;
-            var mTitle = data.results[0].title;
-            console.log(mTitle);
-            console.log(mID);
-            var movieInfo = `
-            <div class="movieTitle">Title ${data.results[0].title}</div>
-            <div><img src=${data.results[0].image}></div>`
-            document.getElementById('movieInfo').innerHTML = movieInfo;
-        })
-        //     for (var i = 0; i < data.results.length; i++) {
-        //         var movieSearch = data.results[i]
-        //         console.log(movieSearch);
-        //         //  console.log(data.results)
-        //     }
-        // })
-};
+    if (!movieTitle) {
+        console.error("You need to search for a movie or show");
+        return;
+    }
+    var queryString = './search_results.html?q=' +movieTitle 
+    location.assign(queryString);
+
+}
+
+sButton.addEventListener('click', getTitle);
+   
+
+
 
 
 
