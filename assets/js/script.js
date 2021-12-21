@@ -27,6 +27,7 @@ function getTitle(movieTitle) { ///// IMDB API CALL //////
             <div class="movieTitle">Title ${data.results[0].title}</div>
             <div><img src=${data.results[0].image}></div>`
             document.getElementById('movieInfo').innerHTML = movieInfo;
+            useTitle(mID);
         })
         //     for (var i = 0; i < data.results.length; i++) {
         //         var movieSearch = data.results[i]
@@ -36,9 +37,41 @@ function getTitle(movieTitle) { ///// IMDB API CALL //////
         // })
 };
 
+function useTitle(mID){
+    var queryUrlTwo = 'https://api.watchmode.com/v1/search/?apiKey=' + watchModeApiKey +'&search_field=imdb_id' +'&search_value='+ mID;
+    fetch(queryUrlTwo)
+    .then (function (response) {
+        return response.json();
+    })
+    .then (function (data) {
+        console.log(data);
+        var watchID = data.title_results[0].id;
+        console.log(watchID);
+        showSources(watchID);
+    //  for (var i=0; i < data.results.length; i++) {
+    //      var movieID = data.results[i]
+    //      console.log(movieID)
+    //      console.log(data.results)
+     })
+};
 
-
-
+function showSources(watchID) 
+{
+    var queryUrlTwo = 'https://api.watchmode.com/v1/title/' + watchID + '/sources/?apiKey=' + watchModeApiKey;
+    fetch(queryUrlTwo)
+    .then (function (response) {
+        return response.json();
+    })
+    .then (function (data) {
+        console.log(data);
+        
+    
+    //  for (var i=0; i < data.results.length; i++) {
+    //      var movieID = data.results[i]
+    //      console.log(movieID)
+    //      console.log(data.results)
+     })
+};
 
 
 /////////jquery button search////////////////////////////
@@ -55,24 +88,24 @@ function getTitle(movieTitle) { ///// IMDB API CALL //////
 
 ///////////////////watchmode api////////////////////
 
-// function testSearch(turnSplitArrayToString){
-    // var testArray = ["the", "great", "escape"];
-    // console.log(testArray.join("%20"));
-    // var inputValue = document.querySelector("#searchInput")
+function testSearch(turnSplitArrayToString){
+    var testArray = ["the", "great", "escape"];
+    console.log(testArray.join("%20"));
+    var inputValue = document.querySelector("#searchInput")
     
-    // var queryUrlTwo = 'https://api.watchmode.com/v1/networks/?apiKey=Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w&search_field=name&search_value=' + turnSplitArrayToString;
-    // fetch(queryUrlTwo)
-    // .then (function (response) {
-    //     return response.json();
-    // })
-    // .then (function (data) {
-    //     console.log(data);
+    var queryUrlTwo = 'https://api.watchmode.com/v1/networks/?apiKey=Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w&search_field=name&search_value=' + turnSplitArrayToString;
+    fetch(queryUrlTwo)
+    .then (function (response) {
+        return response.json();
+    })
+    .then (function (data) {
+        console.log(data);
     
-    //  for (var i=0; i < data.results.length; i++) {
-    //      var movieID = data.results[i]
-    //      console.log(movieID)
-    //      console.log(data.results)
-    //  }
-    // });
-    // }
+     for (var i=0; i < data.results.length; i++) {
+         var movieID = data.results[i]
+         console.log(movieID)
+         console.log(data.results)
+     }
+    });
+    }
    ///////////////////////////////////////////////// 
