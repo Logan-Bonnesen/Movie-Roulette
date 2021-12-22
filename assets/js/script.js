@@ -96,4 +96,18 @@ function testSearch(turnSplitArrayToString){
      }
     });
     }
+
+inlineFormInputName.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("sButton").click();
+    }
+
+
+
+
+})
+
+
+
    ///////////////////////////////////////////////// 
