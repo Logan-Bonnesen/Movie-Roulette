@@ -74,18 +74,6 @@ function showSources(watchID)
 };
 
 
-/////////jquery button search////////////////////////////
-
-// $("#search-city").on("click", function() {
-//     var searchValue = $("#city-input").val()
-//     var arrayToJoin = searchValue.split(" ")
-//     var turnSplitArrayToString = arrayToJoin.join("%20")
-
-//     testSearch(turnSplitArrayToString)
-
-
-// })
-
 ///////////////////watchmode api////////////////////
 
 function testSearch(turnSplitArrayToString){
