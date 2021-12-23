@@ -71,8 +71,9 @@ function getTitle(service, genre) {
 .then(function(response) {
         return response.json();
 })
-.then(function(data){
+.then(function(data, imdbNumber){
 	console.log(data);
+    var imdbNumber = ''
 
 for (let i = 0; i < 6; i++) {
      useAll += `<button class="launchModal">
@@ -82,6 +83,8 @@ for (let i = 0; i < 6; i++) {
       <div><img src=${data.results[i].posterURLs[185]}></div>
      </div> 
      </button>`
+     imdbNumber = `${data.results[i].imdbID}`
+     console.log(imdbNumber);
 }
     document.getElementById('boxes').innerHTML = useAll;
 
