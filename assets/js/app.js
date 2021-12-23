@@ -22,14 +22,14 @@ $(".launchModal").click(function() {
 
 
 
-// var sButton = document.getElementById('sButton');
-// sButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     var movieTitle = document.getElementById('inlineFormInputName').value;
-//     console.log(movieTitle);
-//     // getTitle(movieTitle);
-//     getTitle();
-// })
+var sButton = document.getElementById('sButton');
+sButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    var movieTitle = document.getElementById('inlineFormInputName').value;
+    console.log(movieTitle);
+    // getTitle(movieTitle);
+    getTitle(movieTitle);
+})
 
 
 
@@ -101,31 +101,40 @@ $(".launchModal").click(function() {
 // }
 
 
-// function getTitle(movieTitle) { ///// IMDB API CALL //////
-//     var queryUrl = 'https://imdb-api.com/en/API/SearchTitle/' + imdbApiKey + '/' + movieTitle + '/';
-//     fetch(queryUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//             var mID = data.results[0].id;
-//             var mTitle = data.results[0].title;
-//             console.log(mTitle);
-//             console.log(mID);
-//             var movieInfo = `
-//             <div class="movieTitle">Title ${data.results[0].title}</div>
-//             <div><img src=${data.results[0].image}></div>`
-//             document.getElementById('movieInfo').innerHTML = movieInfo;
-//             useTitle(mID);
-//         })
-//             for (var i = 0; i < data.results.length; i++) {
-//                 var movieSearch = data.results[i]
-//                 console.log(movieSearch);
-//                 //  console.log(data.results)
-//             }
-//         })
-// };
+function getTitle(movieTitle) { ///// IMDB API CALL //////
+    var queryUrl = 'https://imdb-api.com/en/API/SearchTitle/' + imdbApiKey + '/' + movieTitle + '/';
+    fetch(queryUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            var mID = data.results[0].id;
+            var mTitle = data.results[0].title;
+            console.log(mTitle);
+            console.log(mID);
+            // var movieInfo = `
+            // // <div class="movieTitle">Title ${data.results[0].title}</div>
+            // // <div><img src=${data.results[0].image}></div>`
+            // // document.getElementById('movieInfo').innerHTML = movieInfo;
+            // for (var i = 0; i < data.results.length; i++) {
+            //     var movieSearch = data.results[i]
+            //     console.log(movieSearch);
+            //      console.log(data.results)
+            // }
+            // useTitle(mID);
+            console.log(mID);
+            getInfo(mID);
+
+        })
+            
+        }
+
+
+
+
+
+
 
 
 inlineFormInputName.addEventListener("keyup", function(event) {
@@ -133,3 +142,35 @@ inlineFormInputName.addEventListener("keyup", function(event) {
         event.preventDefault();
         document.getElementById("sButton").click();
     }})
+
+
+
+
+
+    function getInfo(ttID) { ///// 2nd IMDB API CALL //////
+        // var ttID = "tt1375666"
+        // var mID = data.results[0].id;
+        // console.log(mID)
+        var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + ttID;
+        fetch(queryUrl)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+              var releaseDate = $("<p>").text(data.releaseDate);
+               $(".movie-info").append(releaseDate);
+              var runTime = $("<p>").text(data.runtimeStr);
+              $(".movie-info").append(runTime);
+              var imdbRating = $("<p>").text(data.imDbRating)
+              $(".movie-info").append(imdbRating);
+              var tagline = $("<p>").text(data.tagline);
+              $(".movie-info").append(tagline);
+
+              console.log(data.runtimeStr);
+              console.log(data.releaseDate);
+              console.log(data.imDbRating);
+              console.log(data.tagline);
+
+            })
+        }  
