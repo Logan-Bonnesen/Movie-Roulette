@@ -3,14 +3,35 @@ var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 
 
-var sButton = document.getElementById('sButton');
-sButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    var movieTitle = document.getElementById('inlineFormInputName').value;
-    console.log(movieTitle);
-    // getTitle(movieTitle);
-    getTitle();
-})
+// var launch = document.querySelector("#launchModal")
+// launch.addEventListener("click", function(){
+//     var modal = document.querySelector(".modal")
+//     modal.addClass = 'is-active'
+// });
+// var closeModal = document.querySelector('.modal-close')
+// closeModal.addEventListener('click', function(){
+// modal.removeClass = 'is-active'
+// });
+
+$(".launchModal").click(function() {
+     $(".modal").addClass("is-active");
+});  
+  $(".modal-close").click(function() {
+    $(".modal").removeClass("is-active");
+});
+
+
+
+// var sButton = document.getElementById('sButton');
+// sButton.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     var movieTitle = document.getElementById('inlineFormInputName').value;
+//     console.log(movieTitle);
+//     // getTitle(movieTitle);
+//     getTitle();
+// })
+
+
 
 
 
@@ -27,13 +48,6 @@ sButton.addEventListener('click', function (event) {
 // })
 // .then(function(data){
 // 	console.log(data);
-//     var boxes1 = ''
-//     var boxes2 = ''
-//     var boxes3 = ''
-//     var boxes4 = ''
-//     var boxes5 = ''
-//     var boxes6 = ''
-                 
 //                 for (let i = 0; i < 6; i++) {
 //                     var div = document.createElement('div')
 //                     div.classList = "column notification is-info"
