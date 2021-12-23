@@ -1,4 +1,7 @@
-.columns {
-    gap: 10px;  
+body {
+    background-color: rgb(68, 94, 102);
+}
 
+.columns {
+    gap: 10px
 }
