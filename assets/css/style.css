@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 body {
     background-color: rgb(68, 94, 102);
 }
@@ -5,3 +6,27 @@ body {
 .columns {
     gap: 10px
 }
+=======
+.hero-body{
+    background-color: blueviolet;
+}
+
+.title{
+    text-align: center;
+    font-family: fantasy;
+    
+    
+}
+
+.subtitle{
+    text-align: center;
+    font-family: cursive;
+}
+
+.columns{
+ gap: 50px;
+ 
+}
+   
+ 
+>>>>>>> Stashed changes
