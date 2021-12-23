@@ -1,38 +1,30 @@
 var imdbApiKey = 'k_flc35q5h'
-
-var watchModeApiKey = 'Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w'
-var launchButton = document.querySelector('.launchModal')
-
-// var watchModeApiKey = 'Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w'
-
-
-
-// var launch = document.querySelector("#launchModal")
-// launch.addEventListener("click", function(){
-//     var modal = document.querySelector(".modal")
-//     modal.addClass = 'is-active'
-// });
-// var closeModal = document.querySelector('.modal-close')
-// closeModal.addEventListener('click', function(){
-// modal.removeClass = 'is-active'
-// });
-
-
-
+var imdbApiKey2 = 'k_5yosmfb0'
+var useAll = '';
 
 var sButton = document.getElementById('sButton');
 sButton.addEventListener('click', function (event) {
     event.preventDefault();
-
     console.log('hello')
     userInput();
 })
 
+///////// Opening Modal /////////////////
+$(document).ready(function(){
+    $("#modalMain").addClass("is-active");
+});
+$(".modal-close").click(function() {
+    $("#modalMain").removeClass("is-active");
+ });
+
+///////////////////////////////////////////
 
 function userInput() {
 
-    var service = $('#service').val();
+    var serv = $('#service').val();
+    var service =serv.toLowerCase()
     console.log(service)
+    
     var genre;
     var genreChoice = $('#genre').val();
 
@@ -63,10 +55,13 @@ function userInput() {
 
 }
 
-
-
 function getTitle(service, genre) {
-fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=movie&genre=${genre}7&page=1&output_language=en&language=en`, {
+
+    var randPage = Math.floor(Math.random() *14)
+    var usePage = (randPage + 1);
+    console.log(randPage);
+
+        fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=movie&genre=${genre}&page=${usePage}&output_language=en&language=en`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
@@ -76,121 +71,45 @@ fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&ser
 .then(function(response) {
         return response.json();
 })
-.then(function(data){
+.then(function(data, imdbNumber){
 	console.log(data);
-    
-                for (let i = 0; i < 6; i++) {
-                    var modalButton = document.createElement('button')
-                    modalButton.addClass = 'launchModal'
-                    boxes.appendChild(modalButton)
+    var imdbNumber = ''
 
+for (let i = 0; i < 6; i++) {
+     useAll += `<button class="launchModal">
+     <div class="column notification is-info">
+     boxes3 = <div class="tile is-child box">
+      <div class="title">${data.results[i].title}</div>
+      <div><img src=${data.results[i].posterURLs[185]}></div>
+     </div> 
+     </button>`
+     imdbNumber = `${data.results[i].imdbID}`
+     console.log(imdbNumber);
+}
+    document.getElementById('boxes').innerHTML = useAll;
 
-                    var div = document.createElement('div')
-                    div.classList = "column notification is-info"
-                    modalButton.appendChild(div)
-
-                    var title = data.results[i].title
-                    var titleEl = document.createElement('p')
-                    titleEl.textContent = title
-                    div.appendChild(titleEl)
-
-
-                    var img = data.results[i].posterURLs[185]
-                    console.log(img)
-                    var imgEl = document.createElement('img')
-                    imgEl.setAttribute('src', img)
-                    div.appendChild(imgEl)
-
-                }
-launchModal(modalButton)
-
-    var movieTitle = document.getElementById('inlineFormInputName').value;
-    console.log(movieTitle);
-    // getTitle(movieTitle);
-    getTitle(movieTitle);
-})
-
-
-
-
-
-// function getTitle() {
-// fetch("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=27&page=1&output_language=en&language=en", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-// 		"x-rapidapi-key": "5905109ec5msh57a2f97f237f422p10f34bjsn176a53ffa732"
-// 	}
-// })
-// .then(function(response) {
-//         return response.json();
-// })
-// .then(function(data){
-// 	console.log(data);
-//                 for (let i = 0; i < 6; i++) {
-//                     var div = document.createElement('div')
-//                     div.classList = "column notification is-info"
-//                     boxes.appendChild(div)
-
-//                     var title = data.results[i].title
-//                     var titleEl = document.createElement('p')
-//                     titleEl.textContent = title
-//                     div.appendChild(titleEl)
-
-
-//                     var img = data.results[i].posterURLs[185]
-//                     console.log(img)
-//                     var imgEl = document.createElement('img')
-//                     imgEl.setAttribute('src', img)
-//                     div.appendChild(imgEl)
-
-
-
-
-
-                    // boxes1 = `<div class="tile is-vertical is-parent has-text-centered is-3">
-                    // <div class="tile is-child box"></div>
-                    // <div class="title">${data.results[i].title}</div>
-                    // <div><img src=${data.results[i].posterURLs[185]}></div>`
-                    // boxes2 = `<div class="tile is-child box">
-                    // <div class="title">${data.results[2].title}</div>
-                    // <div><img src=${data.results[2].posterURLs[185]}></div>`
-                    // boxes3 = `<div class="tile is-child box">
-                    // <div class="title">${data.results[3].title}</div>
-                    // <div><img src=${data.results[3].posterURLs[185]}></div>`
-                    // boxes4 = `<div class="tile is-child box">
-                    // <div class="title">${data.results[4].title}</div>
-                    // <div><img src=${data.results[4].posterURLs[185]}></div>`
-                    // boxes5 = `<div class="tile is-child box">
-                    // <div class="title">${data.results[5].title}</div>
-                    // <div><img src=${data.results[5].posterURLs[185]}></div>`
-                    // boxes6 = `<div class="tile is-child box">
-                    // <div class="title">${data.results[6].title}</div>
-                    // <div><img src=${data.results[6].posterURLs[185]}></div>`
-
-                // document.getElementById('boxes1').innerHTML = boxes1;
-                // document.getElementById('smallBoxes2').innerHTML = boxes2;
-                // document.getElementById('smallBoxes3').innerHTML = boxes3;
-                // document.getElementById('smallBoxes4').innerHTML = boxes4;
-                // document.getElementById('smallBoxes5').innerHTML = boxes5;
-                // document.getElementById('smallBoxes6').innerHTML = boxes6;
-//                 }
-                
+    $(".launchModal").click(function() {
+        $(".modal").addClass("is-active");
+    });
+     $(".modal-close").click(function() {
+       $(".modal").removeClass("is-active");
+    })
+     getInfo(imdbNumber)           
 });
-
 }
 
-function launchModal(modalButton) {
-// var launch = document.querySelector(".launchModal")
-modalButton.addEventListener("click", function(){
-    var modal = document.querySelector(".modal")
-    modal.addClass = 'is-active'
-});
-var closeModal = document.querySelector('.modal-close')
-closeModal.addEventListener('click', function(){
-modal.removeClass = 'is-active'
-});
-}
+
+// function launchModal(modalButton) {
+// // var launch = document.querySelector(".launchModal")
+// modalButton.addEventListener("click", function(){
+//     var modal = document.querySelector(".modal")
+//     modal.addClass = 'is-active'
+// });
+// var closeModal = document.querySelector('.modal-close')
+// closeModal.addEventListener('click', function(){
+// modal.removeClass = 'is-active'
+// });
+// }
 
 
 // $(".launchModal").click(function() {
@@ -203,57 +122,21 @@ modal.removeClass = 'is-active'
 
 
 
-function getTitle(movieTitle) { ///// IMDB API CALL //////
-    var queryUrl = 'https://imdb-api.com/en/API/SearchTitle/' + imdbApiKey + '/' + movieTitle + '/';
-    fetch(queryUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            var mID = data.results[0].id;
-            var mTitle = data.results[0].title;
-            console.log(mTitle);
-            console.log(mID);
-            // var movieInfo = `
-            // // <div class="movieTitle">Title ${data.results[0].title}</div>
-            // // <div><img src=${data.results[0].image}></div>`
-            // // document.getElementById('movieInfo').innerHTML = movieInfo;
-            // for (var i = 0; i < data.results.length; i++) {
-            //     var movieSearch = data.results[i]
-            //     console.log(movieSearch);
-            //      console.log(data.results)
-            // }
-            // useTitle(mID);
-            console.log(mID);
-            getInfo(mID);
-
-        })
-            
-        }
+// inlineFormInputName.addEventListener("keyup", function(event) {
+//     if (event.keyCode === 13) {
+//         event.preventDefault();
+//         document.getElementById("sButton").click();
+//     }})
 
 
 
 
 
-
-
-
-inlineFormInputName.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("sButton").click();
-    }})
-
-
-
-
-
-    function getInfo(ttID) { ///// 2nd IMDB API CALL //////
-        // var ttID = "tt1375666"
-        // var mID = data.results[0].id;
-        // console.log(mID)
-        var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + ttID;
+    function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
+     
+        
+        
+        var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + imdbNumber;
         fetch(queryUrl)
             .then(function (response) {
                 return response.json();
