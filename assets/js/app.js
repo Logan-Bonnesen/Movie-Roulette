@@ -1,6 +1,6 @@
 var imdbApiKey = 'k_flc35q5h'
-var watchModeApiKey = 'Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w'
-
+// var watchModeApiKey = 'Ec21JVame9BKXdK9NqLodse4afGCe0nl4nOejc7w'
+var imdbApiKey2 = 'k_5yosmfb0'
 
 
 var sButton = document.getElementById('sButton');
