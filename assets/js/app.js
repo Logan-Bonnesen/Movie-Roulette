@@ -5,7 +5,6 @@ var useAll = '';
 var sButton = document.getElementById('sButton');
 sButton.addEventListener('click', function (event) {
     event.preventDefault();
-
     console.log('hello')
     userInput();
 })
@@ -67,19 +66,17 @@ function getTitle(service, genre) {
 	console.log(data);
 
 for (let i = 0; i < 6; i++) {
-     useAll += `<button class=“launchModal”>
-     <div class=“column notification is-info is-one-third”>
-       <p class="title">${data.results[i].title}</p>
-       <figure class=“image is-4by3”>
-       <img src=${data.results[i].posterURLs[185]}>
-     </div>
-     </figure>
+     useAll += `<button class="launchModal">
+     <div class="column notification is-info">
+     boxes3 = <div class="tile is-child box">
+      <div class="title">${data.results[i].title}</div>
+      <div><img src=${data.results[i].posterURLs[185]}></div>
+     </div> 
      </button>`
 }
     document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
-        console.log('model working?')
         $(".modal").addClass("is-active");
     });
      $(".modal-close").click(function() {
