@@ -1,12 +1,50 @@
 var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 var useAll = '';
+var userServiceChoice = "";
+var userGenreChoice = ""
 
+//convert to jquery
 var sButton = document.getElementById('sButton');
 sButton.addEventListener('click', function (event) {
     event.preventDefault();
     console.log('hello')
-    userInput();
+    getTitle(userServiceChoice, genre);
+})
+
+//capture user selction on the service
+$('#service1').change(function() {
+    console.log($(this).val());
+    userServiceChoice = $(this).val();
+});
+
+//capture user selction on the genre
+//convert genre choice to code for api
+
+$('#genre1').change(function() {
+    userGenreChoice = $(this).val();
+    if (userGenreChoice === 'Adventure'){
+        genre = 12
+    } else if(userGenreChoice === 'Biography') {
+        genre = 1
+    } else if(userGenreChoice === 'Drama'){
+        genre = 18
+    } else if(userGenreChoice === 'Horror'){
+        genre = 27
+    } else if(userGenreChoice === 'Action'){
+        genre = 28
+    } else if(userGenreChoice === 'Comedy'){
+        genre = 35
+    } else if(userGenreChoice === 'Thriller'){
+        genre = 53
+    }  else if(userGenreChoice === 'Crime'){
+        genre = 80
+    } else if(userGenreChoice === 'Mystery'){
+        genre = 9648
+    } else {
+        genre = 10749
+    }
+
 })
 
 ///////// Opening Modal /////////////////
@@ -18,12 +56,12 @@ $(".modal-close").click(function() {
  });
  $("#closebtn").click(function() {
     $("#modalMain").removeClass("is-active");
-       var serv = $('.service').val();
+    var serv = $('#service').val();
     var service =serv.toLowerCase()
     console.log(service)
     
     
-    var genreChoice = $('.genre').val();
+    var genreChoice = $('#genre').val();
     userInput(service, genreChoice)
  });
 ///////////////////////////////////////////
@@ -31,6 +69,13 @@ $(".modal-close").click(function() {
 function userInput(service, genreChoice) {
 var genre;
  
+// var serv = $('#service').val();
+// var service =serv.toLowerCase()
+// console.log(service)
+
+
+// var genreChoice = $('#genre').val();
+// userInput(service, genreChoice)
 
     if (genreChoice === 'Adventure'){
         genre = 12
@@ -59,7 +104,7 @@ var genre;
 
 }
 
-function getTitle(service, genre) {
+function getTitle(service, userServiceChoice, genre) {
 
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
