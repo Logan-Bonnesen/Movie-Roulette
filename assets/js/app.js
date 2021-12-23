@@ -9,6 +9,15 @@ sButton.addEventListener('click', function (event) {
     userInput();
 })
 
+///////// Opening Modal /////////////////
+$(document).ready(function(){
+    $("#modalMain").addClass("is-active");
+});
+$(".modal-close").click(function() {
+    $("#modalMain").removeClass("is-active");
+ });
+
+///////////////////////////////////////////
 
 function userInput() {
 
