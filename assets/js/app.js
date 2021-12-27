@@ -4,48 +4,30 @@ var useAll = '';
 var userServiceChoice = "";
 var userGenreChoice = ""
 
-//convert to jquery
-var sButton = document.getElementById('sButton');
-sButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('hello')
-    getTitle(userServiceChoice, genre);
-})
 
-//capture user selction on the service
-$('#service1').change(function() {
+
+    //capture user selction on the service
+userServiceChoice = $('#service1').change(function() {
     console.log($(this).val());
     userServiceChoice = $(this).val();
+    return userServiceChoice;
 });
 
-//capture user selction on the genre
-//convert genre choice to code for api
-
-$('#genre1').change(function() {
-    userGenreChoice = $(this).val();
-    if (userGenreChoice === 'Adventure'){
-        genre = 12
-    } else if(userGenreChoice === 'Biography') {
-        genre = 1
-    } else if(userGenreChoice === 'Drama'){
-        genre = 18
-    } else if(userGenreChoice === 'Horror'){
-        genre = 27
-    } else if(userGenreChoice === 'Action'){
-        genre = 28
-    } else if(userGenreChoice === 'Comedy'){
-        genre = 35
-    } else if(userGenreChoice === 'Thriller'){
-        genre = 53
-    }  else if(userGenreChoice === 'Crime'){
-        genre = 80
-    } else if(userGenreChoice === 'Mystery'){
-        genre = 9648
-    } else {
-        genre = 10749
-    }
-
+userGenreChoice = $('#genre1').change(function(){
+    var genre1 = $(this).val();
+    console.log(genre1)
+    return genre1
 })
+
+
+$('#sButton').click(function(){
+    //$('#boxes').empty()
+    userInput(userServiceChoice, userGenreChoice)
+})
+
+
+
+
 
 ///////// Opening Modal /////////////////
 $(document).ready(function(){
@@ -104,7 +86,7 @@ var genre;
 
 }
 
-function getTitle(service, userServiceChoice, genre) {
+function getTitle(service, genre) {
 
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
@@ -132,6 +114,7 @@ for (let i = 0; i < 6; i++) {
      </div> 
      </button>`
 }
+    document.getElementById('boxes').innerHTML = "";
     document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
