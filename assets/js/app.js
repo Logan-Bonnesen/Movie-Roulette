@@ -54,9 +54,10 @@ function userInput() {
     getTitle(service, genre)
 
 }
+var convertTitleToNumber;
 
 function getTitle(service, genre) {
-
+    convertTitleToNumber = [];
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
     console.log(randPage);
@@ -74,6 +75,7 @@ function getTitle(service, genre) {
 .then(function(data, imdbNumber){
 	console.log(data);
     var imdbNumber = ''
+    console.log(convertTitleToNumber)
 
 for (let i = 0; i < 6; i++) {
      useAll += `<button class="launchModal">
@@ -84,9 +86,9 @@ for (let i = 0; i < 6; i++) {
      </div> 
      </button>`
      imdbNumber = `${data.results[i].imdbID}`
+     convertTitleToNumber.push(imdbNumber)
      console.log(imdbNumber);
-}
-    document.getElementById('boxes').innerHTML = useAll;
+     document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
         $(".modal").addClass("is-active");
@@ -94,7 +96,15 @@ for (let i = 0; i < 6; i++) {
      $(".modal-close").click(function() {
        $(".modal").removeClass("is-active");
     })
-     getInfo(imdbNumber)           
+     
+}
+for (let i = 0; i < convertTitleToNumber.length; i++) {
+    getInfo(convertTitleToNumber[i])
+
+}
+
+// getInfo(imdbNumber)
+     
 });
 }
 
@@ -130,7 +140,7 @@ for (let i = 0; i < 6; i++) {
 
 
 
-
+    
 
     function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
      
