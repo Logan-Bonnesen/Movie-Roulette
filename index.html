@@ -13,10 +13,10 @@
   <section class="hero is-dark is-small">
     <div class="hero-body">
       <p class="title">
-        Website Title
+        Movie Roulette
       </p>
       <p class="subtitle">
-        Website subtitle
+        sub
       </p>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div id="navbarBasicExample" class="navbar-menu">
@@ -24,22 +24,22 @@
             <div class="navbar-item">
               <div class="control mr-2">
                 <div class="select">
-                  <select id='service'>
+                  <select id='service1'>
                     <option>Select Service</option>
-                    <option>Disney</option>
-                    <option>HBO</option>
-                    <option>Hulu</option>
-                    <option>Netflix</option>
-                    <option>Peacock</option>
-                    <option>Prime</option>
+                    <option value='disney'>Disney</option>
+                    <option value='hbo'>HBO</option>
+                    <option value='hulu'> Hulu</option>
+                    <option value='netflix'> Netflix</option>
+                    <option value='peacock'> Peacock</option>
+                    <option value='prime'> Prime</option>
                   </select>
                 </div>
               </div>
               <div class="control mr-2">
                 <div class="select">
-                  <select id='genre'>
+                  <select id='genre1'>
                     <option>Select Genre</option>
-                    <option>Adventure</option>
+                    <option value='adventure'>Adventure</option>
                     <option>Biography</option>
                     <option>Drama</option>
                     <option>Horror</option>
@@ -64,51 +64,92 @@
 
     </div>
   </section>
-  <section>
 
-    <!-- <div class="container">
-      <div class="columns is-centered mt-4 is-multiline" id='boxes'>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
+  <article>
+    <div id="modalMain" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h1 class='modal-header'>
+                  <strong class='text'>Not sure what to watch?</strong> 
+                </h1> <br>
+                <div class='selections'>
+                <h3>
+                  Choose your streaming service</h3>
+                  <div class="select">
+                    <select id='service'>
+                      <option>Select Service</option>
+                      <option>Disney</option>
+                      <option>HBO</option>
+                      <option>Hulu</option>
+                      <option>Netflix</option>
+                      <option>Peacock</option>
+                      <option>Prime</option>
+                    </select>
+                    </div>               
+                <h3>
+                  Choose your genre 
+                </h3>
+                <div class="select">
+                  <select id='genre'>
+                    <option>Select Genre</option>
+                    <option>Adventure</option>
+                    <option>Biography</option>
+                    <option>Drama</option>
+                    <option>Horror</option>
+                    <option>Action</option>
+                    <option>Comedy</option>
+                    <option>Thriller</option>
+                    <option>Crime</option>
+                    <option>Mystery</option>
+                    <option>Romance</option>
+                  </select>
+                </div>
+                
+              </div>
+              <div class='modal-search-button'></div> 
+              <button class="button3 is-danger is-small" id="closebtn">Search</button>
+            </div> 
+            </div>   
+                       
+            </div>
+          </article>
         </div>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
-        </div>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
-        </div>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
-        </div>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
-        </div>
-        <div class="column notification is-info">
-          <p>is-one-quarter</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png">
-          </figure>
-        </div>
+
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </div>
+  </article>
+
+
+  <section>
+    <div class=“container”>
+      <div class=“columns is-centered mt-4 is-multiline” id='boxes'>
+      </div>
+      </div>
+
+
+ <!-- first api -->
+ <div class="container" >
+  <div class="columns is-centered mt-4 is-multiline" id='boxes' >
+    <button class="launchModal">
+      <div class="column notification is-info">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/640x480.png">
+        </figure>
+      </div>
+    </button>
+  </div>
+=======
       </div> -->
 
 <div class="container">
         <div class="columns is-centered mt-4 is-multiline" id='boxes'>
-<<<<<<< Updated upstream
+
           <div class="column notification is-info"> 
             <p>is-one-third</p>
             <figure class="image is-4by3">
@@ -117,7 +158,7 @@
           </div> 
           <div class="column notification is-info is-one-third">
             <p>is-one-third</p>
-=======
+
            <div class="column notification is-info"> 
            <p>is-one-quarter</p>
             <figure class="image is-4by3">
@@ -126,7 +167,7 @@
            </div> 
            <div class="column notification is-info">
             <p>is-one-quarter</p>
->>>>>>> Stashed changes
+
             <figure class="image is-4by3">
               <img src="https://bulma.io/images/placeholders/640x480.png">
             </figure>
@@ -153,13 +194,14 @@
             <p>is-one-third</p>
             <figure class="image is-4by3">
               <img src="https://bulma.io/images/placeholders/640x480.png">
-<<<<<<< Updated upstream
+
             </figure>
-=======
+
             </figure> 
           </div>
->>>>>>> Stashed changes
+
           </div>
+
 
 
     <!-- second api -->
@@ -180,24 +222,6 @@
                   <br>
                   The content for the modal comes here. You may use text, images, buttons etc. here.
                 </p>
-
-      <!-- second api -->
-      <div id="modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content movie-info">
-                  <!-- <p> created in js populates here based on movie-info class -->
-                  
-                </div>
-
               </div>
             </div>
           </article>
@@ -205,12 +229,12 @@
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
+  </div>
+
+</section>
 
 
-   
-</div>
-</div>
-</div>
+
 
   <footer class="footer-fluid notification is-dark ">
     <div class="content has-text-centered notification is-dark">
@@ -222,11 +246,8 @@
       </p>
     </div>
   </footer>
-<!-- </div> -->
-<!-- </div> -->
 
 
-</section>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>

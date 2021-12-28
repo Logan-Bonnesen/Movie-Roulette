@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 body {
     background-color: rgb(68, 94, 102);
 }
@@ -6,7 +6,45 @@ body {
 .columns {
     gap: 10px
 }
-=======
+
+
+.box {
+    background-color: black;
+    /* color: white; */
+}
+
+.modal-background {
+    background-color: black;
+}
+
+.modal-header{
+    color: white;
+    text-align: center;
+}
+
+.modal-content {
+    color: white;
+}
+
+.text {
+    color: white;
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
+.selections {
+    text-align: center;
+
+}
+
+.selections h3{
+    color: white;
+}
+
+.modal-search-button{
+    text-align: center;
+}
+
 .hero-body{
     background-color: blueviolet;
 }
@@ -27,6 +65,4 @@ body {
  gap: 50px;
  
 }
-   
- 
->>>>>>> Stashed changes
+
