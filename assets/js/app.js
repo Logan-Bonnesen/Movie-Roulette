@@ -185,31 +185,30 @@ for (let i = 0; i < 6; i++) {
 
 
 
+function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
+     
+        
+        
+    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + imdbNumber;
+    fetch(queryUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+          var releaseDate = $("<p>").text(data.releaseDate);
+           $(".movie-info").append(releaseDate);
+          var runTime = $("<p>").text(data.runtimeStr);
+          $(".movie-info").append(runTime);
+          var imdbRating = $("<p>").text(data.imDbRating)
+          $(".movie-info").append(imdbRating);
+          var tagline = $("<p>").text(data.tagline);
+          $(".movie-info").append(tagline);
 
-    // function getInfo(ttID) { ///// 2nd IMDB API CALL //////
-    //     // var ttID = "tt1375666"
-    //     // var mID = data.results[0].id;
-    //     // console.log(mID)
-    //     var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + ttID;
-    //     fetch(queryUrl)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (data) {
-    //             console.log(data);
-    //           var releaseDate = $("<p>").text(data.releaseDate);
-    //            $(".movie-info").append(releaseDate);
-    //           var runTime = $("<p>").text(data.runtimeStr);
-    //           $(".movie-info").append(runTime);
-    //           var imdbRating = $("<p>").text(data.imDbRating)
-    //           $(".movie-info").append(imdbRating);
-    //           var tagline = $("<p>").text(data.tagline);
-    //           $(".movie-info").append(tagline);
+          console.log(data.runtimeStr);
+          console.log(data.releaseDate);
+          console.log(data.imDbRating);
+          console.log(data.tagline);
 
-    //           console.log(data.runtimeStr);
-    //           console.log(data.releaseDate);
-    //           console.log(data.imDbRating);
-    //           console.log(data.tagline);
-
-    //         })
-    //     }  
+        })
+    }  
