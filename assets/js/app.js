@@ -21,7 +21,8 @@ userGenreChoice = $('#genre1').change(function(){
 
 
 $('#sButton').click(function(){
-    $('#boxes').empty()
+    var boxes = document.getElementById('boxes')
+    boxes.textContent = ''
     console.log(userGenreChoice)
     userInput(userServiceChoice, userGenreChoice)
 })
@@ -51,7 +52,7 @@ $(".modal-close").click(function() {
 
 function userInput(service, genreChoice) {
 var genre;
-console.log(userGenreChoice)
+
 
 
     if (genreChoice === 'Adventure'){
@@ -97,8 +98,9 @@ function getTitle(service, genre) {
 .then(function(response) {
         return response.json();
 })
-.then(function(data){
+.then(function(data, imdbNumber){
 	console.log(data);
+    var imdbNumber =''
 
 for (let i = 0; i < 6; i++) {
      useAll += `<button class="launchModal">
@@ -108,6 +110,8 @@ for (let i = 0; i < 6; i++) {
       <div><img src=${data.results[i].posterURLs[185]}></div>
      </div> 
      </button>`
+     imdbNumber = `${data.results[i].imdbID}`
+     
 }
     document.getElementById('boxes').innerHTML = "";
     document.getElementById('boxes').innerHTML = useAll;
@@ -118,6 +122,7 @@ for (let i = 0; i < 6; i++) {
      $(".modal-close").click(function() {
        $(".modal").removeClass("is-active");
     })
+    getInfo(imdbNumber)      
                 
 });
 }
@@ -141,7 +146,7 @@ for (let i = 0; i < 6; i++) {
 // });  
 //  $(".modal-close").click(function() {
 //    $(".modal").removeClass("is-active");
-// });
+// });           
 
 
 
