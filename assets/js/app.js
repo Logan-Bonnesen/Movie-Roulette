@@ -21,8 +21,7 @@ userGenreChoice = $('#genre1').change(function(){
 
 
 $('#sButton').click(function(){
-    var boxes = document.getElementById('boxes')
-    boxes.textContent = ''
+    $('#boxes').empty()
     console.log(userGenreChoice)
     userInput(userServiceChoice, userGenreChoice)
 })
