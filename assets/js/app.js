@@ -14,14 +14,15 @@ userServiceChoice = $('#service1').change(function() {
 });
 
 userGenreChoice = $('#genre1').change(function(){
-    var genre1 = $(this).val();
-    console.log(genre1)
-    return genre1
+    userGenreChoice = $(this).val();
+    console.log(userGenreChoice)
+    return userGenreChoice
 })
 
 
 $('#sButton').click(function(){
-    //$('#boxes').empty()
+    $('#boxes').empty()
+    console.log(userGenreChoice)
     userInput(userServiceChoice, userGenreChoice)
 })
 
@@ -50,14 +51,8 @@ $(".modal-close").click(function() {
 
 function userInput(service, genreChoice) {
 var genre;
- 
-// var serv = $('#service').val();
-// var service =serv.toLowerCase()
-// console.log(service)
+console.log(userGenreChoice)
 
-
-// var genreChoice = $('#genre').val();
-// userInput(service, genreChoice)
 
     if (genreChoice === 'Adventure'){
         genre = 12
