@@ -1,3 +1,4 @@
+
 body {
     background-color: rgb(68, 94, 102);
 }
@@ -5,6 +6,7 @@ body {
 .columns {
     gap: 10px
 }
+
 
 .box {
     background-color: black;
@@ -42,3 +44,25 @@ body {
 .modal-search-button{
     text-align: center;
 }
+
+.hero-body{
+    background-color: blueviolet;
+}
+
+.title{
+    text-align: center;
+    font-family: fantasy;
+    
+    
+}
+
+.subtitle{
+    text-align: center;
+    font-family: cursive;
+}
+
+.columns{
+ gap: 50px;
+ 
+}
+
