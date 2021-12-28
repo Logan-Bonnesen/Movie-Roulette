@@ -153,15 +153,18 @@ for (let i = 0; i < convertTitleToNumber.length; i++) {
             })
             .then(function (data) {
                 console.log(data);
+              var movieTitle = $("<h5>)").text(data.title);
+              $(".movie-info").append(movieTitle);
               var releaseDate = $("<p>").text(data.releaseDate);
                $(".movie-info").append(releaseDate);
               var runTime = $("<p>").text(data.runtimeStr);
               $(".movie-info").append(runTime);
               var imdbRating = $("<p>").text(data.imDbRating)
-              $(".movie-info").append(imdbRating);
+              $(".movie-info").append("IMDb rating: " + imdbRating);
               var tagline = $("<p>").text(data.tagline);
               $(".movie-info").append(tagline);
 
+              console.log(data.movieTitle);
               console.log(data.runtimeStr);
               console.log(data.releaseDate);
               console.log(data.imDbRating);
