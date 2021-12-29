@@ -21,7 +21,14 @@ userGenreChoice = $('#genre1').change(function(){
 
 
 $('#sButton').click(function(){
-    $('#boxes').empty()
+    // if (!userGenreChoice){
+    //     console.log('')
+    // } else {
+    //     $('#boxes').remove()
+    // }
+
+    $(".launchModal").remove()
+  
     console.log(userGenreChoice)
     userInput(userServiceChoice, userGenreChoice)
 })
@@ -78,11 +85,12 @@ var genre;
  console.log(genre)
 
     getTitle(service, genre)
+    
 
-}
-
+}       
+var convertTitleToNumber
 function getTitle(service, genre) {
-
+    convertTitleToNumber = [];
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
     console.log(randPage);
@@ -91,7 +99,7 @@ function getTitle(service, genre) {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-		"x-rapidapi-key": "5905109ec5msh57a2f97f237f422p10f34bjsn176a53ffa732"
+		"x-rapidapi-key": "370a1fc206msh9eb5024f3dbeaedp169a7djsna86f9b9fc615"
 	}
 })
 .then(function(response) {
@@ -99,115 +107,70 @@ function getTitle(service, genre) {
 })
 .then(function(data, imdbNumber){
 	console.log(data);
-    var imdbNumber =''
+    var imdbNumber = ''
+    // console.log(convertTitleToNumber)
+    useAll = "";
 
 for (let i = 0; i < 6; i++) {
-     useAll += `<button class="launchModal">
+     useAll += `<button class="launchModal" id = "${i}">
      <div class="column notification is-info">
-     boxes3 = <div class="tile is-child box">
-      <div class="title">${data.results[i].title}</div>
+     <div class="tile is-child box">
+    <div class="title">${data.results[i].title}</div>
       <div><img src=${data.results[i].posterURLs[185]}></div>
      </div> 
      </button>`
      imdbNumber = `${data.results[i].imdbID}`
-     
-}
-    document.getElementById('boxes').innerHTML = "";
-    document.getElementById('boxes').innerHTML = useAll;
+     convertTitleToNumber.push(imdbNumber)
+     console.log(imdbNumber);
+     document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
-        $(".modal").addClass("is-active");
+        $("#modal").addClass("is-active");
+        var moiveIndex = $(this).attr("id");
+        var movieMeta = convertTitleToNumber[moiveIndex];
+        console.log(movieMeta);
+        getInfo(movieMeta);
     });
      $(".modal-close").click(function() {
-       $(".modal").removeClass("is-active");
+       $("#modal").removeClass("is-active");
     })
-    getInfo(imdbNumber)      
-                
+     
+}
+// for (let i = 0; i < convertTitleToNumber.length; i++) {
+//     getInfo(convertTitleToNumber[i])
+
+// }
 });
 }
-
-
-// function launchModal(modalButton) {
-// // var launch = document.querySelector(".launchModal")
-// modalButton.addEventListener("click", function(){
-//     var modal = document.querySelector(".modal")
-//     modal.addClass = 'is-active'
-// });
-// var closeModal = document.querySelector('.modal-close')
-// closeModal.addEventListener('click', function(){
-// modal.removeClass = 'is-active'
-// });
-// }
-
-
-// $(".launchModal").click(function() {
-//     $(".modal").addClass("is-active");
-// });  
-//  $(".modal-close").click(function() {
-//    $(".modal").removeClass("is-active");
-// });           
-
-
-
-
-// function getTitle(movieTitle) { ///// IMDB API CALL //////
-//     var queryUrl = 'https://imdb-api.com/en/API/SearchTitle/' + imdbApiKey + '/' + movieTitle + '/';
-//     fetch(queryUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//             var mID = data.results[0].id;
-//             var mTitle = data.results[0].title;
-//             console.log(mTitle);
-//             console.log(mID);
-//             getInfo(mID);
-
-//         })
-            
-//         }
-
-
-
-
-
-
-
-
-// inlineFormInputName.addEventListener("keyup", function(event) {
-//     if (event.keyCode === 13) {
-//         event.preventDefault();
-//         document.getElementById("sButton").click();
-//     }})
-
-
-
 
 function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
      
         
         
-    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + imdbNumber;
+    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey + '/' + imdbNumber;
     fetch(queryUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+            $(".movie-info").empty();
+          var movieTitle = $("<h5>)").text(data.title);
+          $(".movie-info").append(movieTitle);
           var releaseDate = $("<p>").text(data.releaseDate);
            $(".movie-info").append(releaseDate);
           var runTime = $("<p>").text(data.runtimeStr);
           $(".movie-info").append(runTime);
           var imdbRating = $("<p>").text(data.imDbRating)
-          $(".movie-info").append(imdbRating);
+          $(".movie-info").append("IMDb rating: " + imdbRating);
           var tagline = $("<p>").text(data.tagline);
           $(".movie-info").append(tagline);
 
+          console.log(data.movieTitle);
           console.log(data.runtimeStr);
           console.log(data.releaseDate);
           console.log(data.imDbRating);
           console.log(data.tagline);
 
         })
-    }  
+    } 
