@@ -13,22 +13,27 @@ body {
     padding-top: 100px;
 }
 
-.modal-background {
+.custom-background {
     background-color: black;
 }
 
-#modal {
+/* #modal {
     background-color: white;
-}
+} */
 .modal-header{
     color: white;
     text-align: center;
 }
 
-.modal-content {
+.custom-content {
     color: white;
 }
 
+.custom-content2 {
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
 .text {
     color: white;
     font-size: 50px;
