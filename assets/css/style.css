@@ -10,13 +10,16 @@ body {
 
 .box {
     background-color: black;
-    /* color: white; */
+    padding-top: 100px;
 }
 
 .modal-background {
     background-color: black;
 }
 
+#modal {
+    background-color: white;
+}
 .modal-header{
     color: white;
     text-align: center;
@@ -43,23 +46,33 @@ body {
 
 .modal-search-button{
     text-align: center;
+
+}
+
+.button3 {
+    margin-top: 50px;
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    font-size: 20px;
 }
 
 .hero-body{
-    background-color: blueviolet;
+    background-color: rgb(53, 42, 63);
+    padding-top: 50px;
 }
 
 .title{
-    text-align: center;
-    font-family: fantasy;
+    text-align: left;
+    font-family: 'Francois One', sans-serif;
+    letter-spacing: 5px;
+    font-size: 36px;
+    padding-top: 10px;
     
     
 }
 
-.subtitle{
-    text-align: center;
-    font-family: cursive;
-}
+
 
 .columns{
  gap: 50px;
