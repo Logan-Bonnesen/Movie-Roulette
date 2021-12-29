@@ -102,7 +102,7 @@ function getTitle(service, genre) {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-		"x-rapidapi-key": "370a1fc206msh9eb5024f3dbeaedp169a7djsna86f9b9fc615"
+		"x-rapidapi-key": "5905109ec5msh57a2f97f237f422p10f34bjsn176a53ffa732"
 	}
 })
 .then(function(response) {
@@ -111,17 +111,21 @@ function getTitle(service, genre) {
 .then(function(data, imdbNumber){
 	console.log(data);
     var imdbNumber = ''
-    // console.log(convertTitleToNumber)
     useAll = "";
 
 for (let i = 0; i < 6; i++) {
-     useAll += `<button class="launchModal" id = "${i}">
-     <div class="column notification is-info">
-     <div class="tile is-child box">
-    <div class="title">${data.results[i].title}</div>
-      <div><img src=${data.results[i].posterURLs[185]}></div>
-     </div> 
-     </button>`
+       useAll += `<button class="launchModal is-child is-centered"  id = "${i}">
+       
+          <p class="title has-text-centered">${data.results[i].title}</p>
+          <figure>
+          <img src=${data.results[i].posterURLs[185]}>
+          </figure>
+       
+      
+      </button>`
+
+      
+
      imdbNumber = `${data.results[i].imdbID}`
      convertTitleToNumber.push(imdbNumber)
      console.log(imdbNumber);
@@ -166,6 +170,11 @@ function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
           $(".movie-info").append(imdbText, imdbRating);
           var tagline = $("<p>").text(data.plot);
           $(".movie-info").append(tagline);
+
+          $(document).ready(function() {
+              var url = data.image
+            $('#image').html(`<img src='${url}'>`);
+        });
 
           console.log(data.title);
           console.log(data.runtimeStr);
