@@ -2,7 +2,11 @@ var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 var useAll = '';
 var userServiceChoice = "";
-var userGenreChoice = ""
+var userGenreChoice = "";
+let genreHistory = [];
+let serviceHistory = [];
+
+
 
 
 
@@ -10,23 +14,22 @@ var userGenreChoice = ""
 userServiceChoice = $('#service1').change(function() {
     console.log($(this).val());
     userServiceChoice = $(this).val();
+    serviceHistory.push(userServiceChoice);
+    localStorage.setItem('Service', JSON.stringify(serviceHistory))
     return userServiceChoice;
 });
 
 userGenreChoice = $('#genre1').change(function(){
     userGenreChoice = $(this).val();
-    console.log(userGenreChoice)
+    genreHistory.push(userGenreChoice);
+    localStorage.setItem('Genre', JSON.stringify(genreHistory))
+
+
     return userGenreChoice
 })
 
 
 $('#sButton').click(function(){
-    // if (!userGenreChoice){
-    //     console.log('')
-    // } else {
-    //     $('#boxes').remove()
-    // }
-
     $(".launchModal").remove()
   
     console.log(userGenreChoice)
@@ -136,10 +139,7 @@ for (let i = 0; i < 6; i++) {
     })
      
 }
-// for (let i = 0; i < convertTitleToNumber.length; i++) {
-//     getInfo(convertTitleToNumber[i])
 
-// }
 });
 }
 
@@ -161,12 +161,13 @@ function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
            $(".movie-info").append(releaseDate);
           var runTime = $("<p>").text(data.runtimeStr);
           $(".movie-info").append(runTime);
-          var imdbRating = $("<p>").text(data.imDbRating)
-          $(".movie-info").append("IMDb rating: " + imdbRating);
-          var tagline = $("<p>").text(data.tagline);
+          var imdbRating = $("<p>").text(data.imDbRating);
+          var imdbText = "IMDB Rating: "
+          $(".movie-info").append(imdbText, imdbRating);
+          var tagline = $("<p>").text(data.plot);
           $(".movie-info").append(tagline);
 
-          console.log(data.movieTitle);
+          console.log(data.title);
           console.log(data.runtimeStr);
           console.log(data.releaseDate);
           console.log(data.imDbRating);
