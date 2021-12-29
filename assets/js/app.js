@@ -120,11 +120,7 @@ for (let i = 0; i < 6; i++) {
           <figure>
           <img src=${data.results[i].posterURLs[185]}>
           </figure>
-       
-      
-      </button>`
-
-      
+          </button>`
 
      imdbNumber = `${data.results[i].imdbID}`
      convertTitleToNumber.push(imdbNumber)
