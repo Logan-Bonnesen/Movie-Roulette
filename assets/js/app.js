@@ -114,7 +114,7 @@ function getTitle(service, genre) {
     useAll = "";
 
 for (let i = 0; i < 6; i++) {
-       useAll += `<button class="launchModal is-child is-centered"  id = "${i}">
+       useAll += `<button class="launchModal is-child is-centered custom-launch"  id = "${i}">
        
           <p class="title has-text-centered">${data.results[i].title}</p>
           <figure>
