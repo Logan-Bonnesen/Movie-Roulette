@@ -92,8 +92,10 @@ var genre;
 
 }       
 var convertTitleToNumber
+var videoArray
 function getTitle(service, genre) {
     convertTitleToNumber = [];
+    videoArray = []
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
     console.log(randPage);
@@ -102,15 +104,16 @@ function getTitle(service, genre) {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-		"x-rapidapi-key": "5905109ec5msh57a2f97f237f422p10f34bjsn176a53ffa732"
+		"x-rapidapi-key": "370a1fc206msh9eb5024f3dbeaedp169a7djsna86f9b9fc615"
 	}
 })
 .then(function(response) {
         return response.json();
 })
-.then(function(data, imdbNumber){
+.then(function(data, imdbNumber, videoNumber){
 	console.log(data);
     var imdbNumber = ''
+    var videoNumber = ''
     useAll = "";
 
 for (let i = 0; i < 6; i++) {
@@ -123,7 +126,9 @@ for (let i = 0; i < 6; i++) {
           </button>`
 
      imdbNumber = `${data.results[i].imdbID}`
+     videoNumber = `${data.results[i].video}`
      convertTitleToNumber.push(imdbNumber)
+     videoArray.push(videoNumber)
      console.log(imdbNumber);
      document.getElementById('boxes').innerHTML = useAll;
 
@@ -131,8 +136,10 @@ for (let i = 0; i < 6; i++) {
         $("#modal").addClass("is-active");
         var moiveIndex = $(this).attr("id");
         var movieMeta = convertTitleToNumber[moiveIndex];
+        var videoIndex = $(this).attr('id')
+        var videoMeta = videoArray[videoIndex]
         console.log(movieMeta);
-        getInfo(movieMeta);
+        getInfo(movieMeta, videoMeta);
     });
      $(".modal-close").click(function() {
        $("#modal").removeClass("is-active");
@@ -143,7 +150,7 @@ for (let i = 0; i < 6; i++) {
 });
 }
 
-function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
+function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
      
         
         
@@ -157,20 +164,29 @@ function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
             $(".movie-info").empty();
           var movieTitle = $("<h5>)").text(data.title);
           $(".movie-info").append(movieTitle);
-          var releaseDate = $("<p>").text(data.releaseDate);
+          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate);
            $(".movie-info").append(releaseDate);
-          var runTime = $("<p>").text(data.runtimeStr);
+          var runTime = $("<p>").text('Run Time: ' +data.runtimeStr);
           $(".movie-info").append(runTime);
           var imdbRating = $("<p>").text(data.imDbRating);
           var imdbText = "IMDB Rating: "
           $(".movie-info").append(imdbText, imdbRating);
           var tagline = $("<p>").text(data.plot);
           $(".movie-info").append(tagline);
+          var movieLink = $('<a>').attr('href', 'https://www.youtube.com/watch?v=' +videoNumber).text('Click here for the movie trailer!')
 
+
+          $(".movie-info").append(movieLink);
           $(document).ready(function() {
               var url = data.image
             $('#image').html(`<img src='${url}'>`);
         });
+        $(document).ready(function(){
+            movieLink.click(function(){
+              window.open(this.href);
+              return false;
+            });
+          });
 
           console.log(data.title);
           console.log(data.runtimeStr);

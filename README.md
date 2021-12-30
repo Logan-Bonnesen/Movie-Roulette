@@ -24,4 +24,4 @@
 ![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/image3.png?raw=true)
 
 # Deployed Website:
-[Movie Roulette](will Update)
+[Movie Roulette](https://logan-bonnesen.github.io/Movie-Roulette/ )
