@@ -164,9 +164,9 @@ function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
             $(".movie-info").empty();
           var movieTitle = $("<h5>)").text(data.title);
           $(".movie-info").append(movieTitle);
-          var releaseDate = $("<p>").text(data.releaseDate);
+          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate);
            $(".movie-info").append(releaseDate);
-          var runTime = $("<p>").text(data.runtimeStr);
+          var runTime = $("<p>").text('Run Time: ' +data.runtimeStr);
           $(".movie-info").append(runTime);
           var imdbRating = $("<p>").text(data.imDbRating);
           var imdbText = "IMDB Rating: "
