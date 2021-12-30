@@ -1,11 +1,11 @@
-/* 
-body {
-    background-color: rgb(68, 94, 102);
-} */
 
-.columns {
-    gap: 10px
+body {
+    background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=http%3A%2F%2Fclipart-library.com%2Fimages_k%2Ftheater-transparent%2Ftheater-transparent-8.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+
 
 
 .box {
@@ -14,7 +14,8 @@ body {
 }
 
 .custom-background {
-    background-color: black;
+    background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.cdn4.stockunlimited.net%2Fpreview1300%2Fcinema-background-with-movie-objects_1823382.jpg');
+    background-position: center;
 }
 
 /* #modal {
@@ -27,6 +28,7 @@ body {
 
 .custom-content {
     color: white;
+    margin-top: 75px;
 }
 
 .custom-content2 {
@@ -91,9 +93,13 @@ body {
 }
 
 .title2 {
-    font-size: 25px;
-    font-family: 'Courier New', Courier, monospace;
-    margin-left: 75px;
+    text-align: center;
+    color: black;
+    font-family: 'Francois One', sans-serif;
+    letter-spacing: 5px;
+    font-size: 60px;
+    padding-top: 10px;
+    word-spacing: 10px;
 }
 
 
