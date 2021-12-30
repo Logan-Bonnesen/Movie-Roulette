@@ -1,13 +1,44 @@
 var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 var useAll = '';
+var userServiceChoice = "";
+var userGenreChoice = "";
+let genreHistory = [];
+let serviceHistory = [];
 
-var sButton = document.getElementById('sButton');
-sButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('hello')
-    userInput();
+
+
+
+
+    //capture user selction on the service
+userServiceChoice = $('#service1').change(function() {
+    console.log($(this).val());
+    userServiceChoice = $(this).val();
+    serviceHistory.push(userServiceChoice);
+    localStorage.setItem('Service', JSON.stringify(serviceHistory))
+    return userServiceChoice;
+});
+
+userGenreChoice = $('#genre1').change(function(){
+    userGenreChoice = $(this).val();
+    genreHistory.push(userGenreChoice);
+    localStorage.setItem('Genre', JSON.stringify(genreHistory))
+
+
+    return userGenreChoice
 })
+
+
+$('#sButton').click(function(){
+    $(".launchModal").remove()
+  
+    console.log(userGenreChoice)
+    userInput(userServiceChoice, userGenreChoice)
+})
+
+
+
+
 
 ///////// Opening Modal /////////////////
 $(document).ready(function(){
@@ -16,17 +47,22 @@ $(document).ready(function(){
 $(".modal-close").click(function() {
     $("#modalMain").removeClass("is-active");
  });
-
-///////////////////////////////////////////
-
-function userInput() {
-
+ $("#closebtn").click(function() {
+    $("#modalMain").removeClass("is-active");
     var serv = $('#service').val();
     var service =serv.toLowerCase()
     console.log(service)
     
-    var genre;
+    
     var genreChoice = $('#genre').val();
+    userInput(service, genreChoice)
+ });
+///////////////////////////////////////////
+
+function userInput(service, genreChoice) {
+var genre;
+
+
 
     if (genreChoice === 'Adventure'){
         genre = 12
@@ -52,10 +88,10 @@ function userInput() {
  console.log(genre)
 
     getTitle(service, genre)
+    
 
-}
-var convertTitleToNumber;
-
+}       
+var convertTitleToNumber
 function getTitle(service, genre) {
     convertTitleToNumber = [];
     var randPage = Math.floor(Math.random() *14)
@@ -75,100 +111,72 @@ function getTitle(service, genre) {
 .then(function(data, imdbNumber){
 	console.log(data);
     var imdbNumber = ''
-    console.log(convertTitleToNumber)
+    useAll = "";
 
 for (let i = 0; i < 6; i++) {
-     useAll += `<button class="launchModal">
-     <div class="column notification is-info">
-     boxes3 = <div class="tile is-child box">
-      <div class="title">${data.results[i].title}</div>
-      <div><img src=${data.results[i].posterURLs[185]}></div>
-     </div> 
-     </button>`
+       useAll += `<button class="launchModal is-child is-centered"  id = "${i}">
+       
+          <p class="title has-text-centered">${data.results[i].title}</p>
+          <figure>
+          <img src=${data.results[i].posterURLs[185]}>
+          </figure>
+          </button>`
+
      imdbNumber = `${data.results[i].imdbID}`
      convertTitleToNumber.push(imdbNumber)
      console.log(imdbNumber);
      document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
-        $(".modal").addClass("is-active");
+        $("#modal").addClass("is-active");
+        var moiveIndex = $(this).attr("id");
+        var movieMeta = convertTitleToNumber[moiveIndex];
+        console.log(movieMeta);
+        getInfo(movieMeta);
     });
      $(".modal-close").click(function() {
-       $(".modal").removeClass("is-active");
+       $("#modal").removeClass("is-active");
     })
      
 }
-for (let i = 0; i < convertTitleToNumber.length; i++) {
-    getInfo(convertTitleToNumber[i])
 
-}
-
-// getInfo(imdbNumber)
-     
 });
 }
 
-
-// function launchModal(modalButton) {
-// // var launch = document.querySelector(".launchModal")
-// modalButton.addEventListener("click", function(){
-//     var modal = document.querySelector(".modal")
-//     modal.addClass = 'is-active'
-// });
-// var closeModal = document.querySelector('.modal-close')
-// closeModal.addEventListener('click', function(){
-// modal.removeClass = 'is-active'
-// });
-// }
-
-
-// $(".launchModal").click(function() {
-//     $(".modal").addClass("is-active");
-// });  
-//  $(".modal-close").click(function() {
-//    $(".modal").removeClass("is-active");
-// });
-
-
-
-
-// inlineFormInputName.addEventListener("keyup", function(event) {
-//     if (event.keyCode === 13) {
-//         event.preventDefault();
-//         document.getElementById("sButton").click();
-//     }})
-
-
-
-    
-
-    function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
+function getInfo(imdbNumber) { ///// 2nd IMDB API CALL //////
      
         
         
-        var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + imdbNumber;
-        fetch(queryUrl)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-              var movieTitle = $("<h5>)").text(data.title);
-              $(".movie-info").append(movieTitle);
-              var releaseDate = $("<p>").text(data.releaseDate);
-               $(".movie-info").append(releaseDate);
-              var runTime = $("<p>").text(data.runtimeStr);
-              $(".movie-info").append(runTime);
-              var imdbRating = $("<p>").text(data.imDbRating)
-              $(".movie-info").append("IMDb rating: " + imdbRating);
-              var tagline = $("<p>").text(data.tagline);
-              $(".movie-info").append(tagline);
+    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey + '/' + imdbNumber;
+    fetch(queryUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            $(".movie-info").empty();
+          var movieTitle = $("<h5>)").text(data.title);
+          $(".movie-info").append(movieTitle);
+          var releaseDate = $("<p>").text(data.releaseDate);
+           $(".movie-info").append(releaseDate);
+          var runTime = $("<p>").text(data.runtimeStr);
+          $(".movie-info").append(runTime);
+          var imdbRating = $("<p>").text(data.imDbRating);
+          var imdbText = "IMDB Rating: "
+          $(".movie-info").append(imdbText, imdbRating);
+          var tagline = $("<p>").text(data.plot);
+          $(".movie-info").append(tagline);
 
-              console.log(data.movieTitle);
-              console.log(data.runtimeStr);
-              console.log(data.releaseDate);
-              console.log(data.imDbRating);
-              console.log(data.tagline);
+          $(document).ready(function() {
+              var url = data.image
+            $('#image').html(`<img src='${url}'>`);
+        });
 
-            })
-        }  
+          console.log(data.title);
+          console.log(data.runtimeStr);
+          console.log(data.releaseDate);
+          console.log(data.imDbRating);
+          console.log(data.tagline);
+
+        })
+    } 

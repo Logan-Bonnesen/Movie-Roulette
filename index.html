@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Bulma!</title>
+  <title>Streaming Services: Movie Roulette</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -13,10 +14,7 @@
   <section class="hero is-dark is-small">
     <div class="hero-body">
       <p class="title">
-        Website Title
-      </p>
-      <p class="subtitle">
-        Website subtitle
+        MOVIE ROULETTE
       </p>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div id="navbarBasicExample" class="navbar-menu">
@@ -24,31 +22,31 @@
             <div class="navbar-item">
               <div class="control mr-2">
                 <div class="select">
-                  <select id='service'>
+                  <select id='service1'>
                     <option>Select Service</option>
-                    <option>Disney</option>
-                    <option>HBO</option>
-                    <option>Hulu</option>
-                    <option>Netflix</option>
-                    <option>Peacock</option>
-                    <option>Prime</option>
+                    <option value='disney'>Disney</option>
+                    <option value='hbo'>HBO</option>
+                    <option value='hulu'>Hulu</option>
+                    <option value='netflix'>Netflix</option>
+                    <option value='peacock'>Peacock</option>
+                    <option value='prime'>Prime</option>
                   </select>
                 </div>
               </div>
               <div class="control mr-2">
                 <div class="select">
-                  <select id='genre'>
+                  <select id='genre1'>
                     <option>Select Genre</option>
-                    <option>Adventure</option>
-                    <option>Biography</option>
-                    <option>Drama</option>
-                    <option>Horror</option>
-                    <option>Action</option>
-                    <option>Comedy</option>
-                    <option>Thriller</option>
-                    <option>Crime</option>
-                    <option>Mystery</option>
-                    <option>Romance</option>
+                    <option value='Adventure'>Adventure</option>
+                    <option value='Biography'>Biography</option>
+                    <option value='Drama'>Drama</option>
+                    <option value='Horror'>Horror</option>
+                    <option value='Action'>Action</option>
+                    <option value='Comedy'>Comedy</option>
+                    <option value='Thriller'>Thriller</option>
+                    <option value='Crime'>Crime</option>
+                    <option value='Mystery'>Mystery</option>
+                    <option value='Romance'>Romance</option>
                   </select>
                 </div>
               </div>
@@ -58,52 +56,100 @@
             </div>
           </div>
         </div>
-    </div>
-    </nav>
-  
+
+      </nav>
 
     </div>
   </section>
 
+  <article>
+    <div id="modalMain" class="modal">
+      <div class="modal-background custom-background">
+        <div class="modal-content custom-content">
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class='modal-header'>
+                    <strong class='text'>Not sure what to watch?</strong>
+                  </h1> <br>
+                  <div class='selections'>
+                    <h3>
+                      Choose your streaming service</h3>
+                    <div class="select">
+                      <select id='service'>
+                        <option>Select Service</option>
+                        <option>Disney</option>
+                        <option>HBO</option>
+                        <option>Hulu</option>
+                        <option>Netflix</option>
+                        <option>Peacock</option>
+                        <option>Prime</option>
+                      </select>
+                    </div>
+                    <h3>
+                      Choose your genre
+                    </h3>
+                    <div class="select">
+                      <select id='genre'>
+                        <option>Select Genre</option>
+                        <option>Adventure</option>
+                        <option>Biography</option>
+                        <option>Drama</option>
+                        <option>Horror</option>
+                        <option>Action</option>
+                        <option>Comedy</option>
+                        <option>Thriller</option>
+                        <option>Crime</option>
+                        <option>Mystery</option>
+                        <option>Romance</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class='modal-search-button'>
+                  <button class="button3" id="closebtn">Search</button></div>
+                </div>
+              </div>
+              </article>
+          </div>
+          <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+      </div>
+      </div>
+  </article>
+
+
+
+
+
+
 
   <section>
-    <div class=“container”>
-      <div class=“columns is-centered mt-4 is-multiline” id='boxes'>
+    <div class='container is-ancestor is-10 is-centered'>
+      <div class='tile is-parent mt-4 is-vertical' id="boxes">
       </div>
-      </div>
+    </div>
 
 
- <!-- first api -->
- <div class="container" >
-  <div class="columns is-centered mt-4 is-multiline" id='boxes' >
-    <button class="launchModal">
-      <div class="column notification is-info">
-        <figure class="image is-4by3">
-          <img src="https://bulma.io/images/placeholders/640x480.png">
-        </figure>
-      </div>
-    </button>
-  </div>
+    <!-- first api -->
 
 
     <!-- second api -->
     <div id="modal" class="modal">
       <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="box">
+      <div class="modal-content custom-content2">
+        <div class="box2">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-64x64">
+              <figure class="image is-128x128" id="image">
                 <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
-                <div>
                 <p>
-                  <div class="movie-info">
-
-                  </div>
+                <div class='movie-info'></div>
                 </p>
               </div>
             </div>
@@ -112,21 +158,18 @@
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
-  </div>
+    
 
-</section>
+  </section>
 
 
 
 
   <footer class="footer-fluid notification is-dark ">
     <div class="content has-text-centered notification is-dark">
-      <p>
-      <p>Footer***</p>
-      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
+      
+      <p>Movie Roulette</p>
+     
     </div>
   </footer>
 

@@ -1,32 +1,84 @@
-<<<<<<< Updated upstream
 body {
     background-color: rgb(68, 94, 102);
-}
-
-.columns {
+  }
+  
+  .columns {
     gap: 10px
-}
-=======
-.hero-body{
-    background-color: blueviolet;
-}
-
-.title{
+  }
+  
+  
+  .box {
+    background-color: black;
+    padding-top: 100px;
+  }
+  
+  .custom-background {
+    background-color: black;
+  }
+  
+  /* #modal {
+    background-color: white;
+  } */
+  .modal-header{
+    color: white;
     text-align: center;
-    font-family: fantasy;
+  }
+  
+  .custom-content {
+    color: white;
+  }
+  
+  .custom-content2 {
+    background-color: white;
+    color: black;
+    padding: 10px;
+  }
+  .text {
+    color: white;
+    font-size: 50px;
+    padding-bottom: 10px;
+  }
+  
+  .selections {
+    text-align: center;
+  
+  }
+  
+  .selections h3{
+    color: white;
+  }
+  
+  .modal-search-button{
+    text-align: center;
+  
+  }
+  
+  .button3 {
+    margin-top: 50px;
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+  }
+  
+  .hero-body{
+    background-color: rgb(53, 42, 63);
+    padding-top: 50px;
+  }
+  
+  .title{
+    text-align: left;
+    font-family: 'Francois One', sans-serif;
+    letter-spacing: 5px;
+    font-size: 36px;
+    padding-top: 10px;
     
     
-}
-
-.subtitle{
-    text-align: center;
-    font-family: cursive;
-}
-
-.columns{
- gap: 50px;
- 
-}
-   
- 
->>>>>>> Stashed changes
+  }
+  
+  
+  
+  .columns{
+  gap: 50px;
+  
+  }
