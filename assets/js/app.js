@@ -82,8 +82,12 @@ var genre;
         genre = 80
     } else if(genreChoice === 'Mystery'){
         genre = 9648
-    } else {
+    } else if(genreChoice === 'Romance'){
         genre = 10749
+    } else {
+        alert("You did not select a genre!");
+        window.location.reload(true)
+        console.log("User did not select a genre.")
     }
  console.log(genre)
 
@@ -120,7 +124,7 @@ for (let i = 0; i < 6; i++) {
        useAll += `<button class="launchModal is-child is-centered custom-launch"  id = "${i}">
        
           <p class="title has-text-centered">${data.results[i].title}</p>
-          <figure>
+          <figure class='figure'>
           <img src=${data.results[i].posterURLs[185]}>
           </figure>
           </button>`
@@ -130,7 +134,7 @@ for (let i = 0; i < 6; i++) {
      convertTitleToNumber.push(imdbNumber)
      videoArray.push(videoNumber)
      console.log(imdbNumber);
-    //  document.getElementById('boxes').innerHTML = useAll;
+     document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
         $("#modal").addClass("is-active");
@@ -146,9 +150,16 @@ for (let i = 0; i < 6; i++) {
     })
      
 }
-$("#boxes").append(useAll);
+
 });
 }
+var modal = $("#modal")
+var modalBackgroundClose = $(".modal-background")
+modalBackgroundClose.on("click", function(){
+    // console.log("this is being clicked")
+modal.removeClass("is-active")
+
+})
 
 function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
      
@@ -164,7 +175,7 @@ function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
             $(".movie-info").empty();
           var movieTitle = $("<h5>)").text(data.title);
           $(".movie-info").append(movieTitle);
-          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate);
+          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate)
            $(".movie-info").append(releaseDate);
           var runTime = $("<p>").text('Run Time: ' +data.runtimeStr);
           $(".movie-info").append(runTime);
