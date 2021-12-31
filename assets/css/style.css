@@ -1,8 +1,9 @@
+/* 
 body {
     background-color: rgb(68, 94, 102);
-  }
-  
-  .columns {
+} */
+
+.columns {
     gap: 10px
 }
 
@@ -62,8 +63,11 @@ body {
 }
 
 .hero-body{
-    background-color: rgb(53, 42, 63);
+    background-image: linear-gradient(rgb(55, 55, 204), green);
+    /* background-colorgb(9, 8, 10)63); */
     padding-top: 50px;
+    border-bottom: 20px dotted rgb(243, 243, 11);
+    
 }
 
 .title{
@@ -72,8 +76,24 @@ body {
     letter-spacing: 5px;
     font-size: 36px;
     padding-top: 10px;
+    word-spacing: 10px;
     
     
+}
+
+.custom-launch {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    border: black 5px solid;
+    background-color: rgb(166, 209, 195);
+    /* border: 20px dotted yellow;
+    padding: 10px; */
+}
+
+.title2 {
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 75px;
 }
 
 
@@ -81,5 +101,12 @@ body {
 .columns{
  gap: 50px;
  
+}
+
+.popcorn {
+    margin-left: 200px;
+}
+.drink {
+    margin-left: 60px;
 }
 
