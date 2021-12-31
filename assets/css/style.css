@@ -10,7 +10,14 @@ body {
 
 #sButton {
     background-color: yellow;
+    border: 2px solid black;
+    padding: 20px;
     color: black;
+}
+
+.select {
+    border: 5px solid black;
+    padding-bottom: 40px;
 }
 
 .box {
