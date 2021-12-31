@@ -12,7 +12,7 @@
 * If the user decides they would like to switch the service and genre, they can change their selection with the supported drop-down boxes.
 #
 ## Technology Used:
-* HTML, CSS, Javascript, and [Bulma](https://bulma.io/) Framework for styling.
+* HTML, CSS, Javascript, jQuery and [Bulma](https://bulma.io/) Framework for styling.
 * Implemented API fetch calls to [IMDB](https://imdb-api.com/) and [Streaming Availability](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
 
 # Screen Shots:
