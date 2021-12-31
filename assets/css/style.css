@@ -1,12 +1,17 @@
-/* 
-body {
-    background-color: rgb(68, 94, 102);
-} */
 
-.columns {
-    gap: 10px
+body {
+    background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.cdn4.stockunlimited.net%2Fpreview1300%2Fcinema-background-with-movie-objects_1823382.jpg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
+
+#sButton {
+    background-color: yellow;
+    color: black;
+}
 
 .box {
     background-color: black;
@@ -14,7 +19,8 @@ body {
 }
 
 .custom-background {
-    background-color: black;
+    background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.cdn4.stockunlimited.net%2Fpreview1300%2Fcinema-background-with-movie-objects_1823382.jpg');
+    background-position: center;
 }
 
 /* #modal {
@@ -27,7 +33,12 @@ body {
 
 .custom-content {
     color: white;
+    margin-top: 75px;
 }
+
+/* .modalCustom {
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwebstockreview.net%2Fimages%2Fmarquee-clipart-transparent.png&f=1&nofb=1');
+} */
 
 .custom-content2 {
     background-color: white;
@@ -84,16 +95,23 @@ body {
 .custom-launch {
     border-radius: 20px;
     margin-bottom: 10px;
-    border: black 5px solid;
-    background-color: rgb(166, 209, 195);
+    padding: 40px;
+    /* border: black 5px solid; */
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.gifer.com%2Fembedded%2Fdownload%2FWiCI.gif&f=1&nofb=1');
+    background-position: center center;
+    background-size: 100% 100%;
     /* border: 20px dotted yellow;
     padding: 10px; */
 }
 
 .title2 {
-    font-size: 25px;
-    font-family: 'Courier New', Courier, monospace;
-    margin-left: 75px;
+    text-align: center;
+    color: white;
+    font-family: 'Francois One', sans-serif;
+    letter-spacing: 5px;
+    font-size: 60px;
+    padding-top: 10px;
+    word-spacing: 10px;
 }
 
 

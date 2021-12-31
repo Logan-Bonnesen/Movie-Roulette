@@ -120,7 +120,7 @@ for (let i = 0; i < 6; i++) {
        useAll += `<button class="launchModal is-child is-centered custom-launch"  id = "${i}">
        
           <p class="title has-text-centered">${data.results[i].title}</p>
-          <figure>
+          <figure class='figure'>
           <img src=${data.results[i].posterURLs[185]}>
           </figure>
           </button>`
@@ -164,7 +164,7 @@ function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
             $(".movie-info").empty();
           var movieTitle = $("<h5>)").text(data.title);
           $(".movie-info").append(movieTitle);
-          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate);
+          var releaseDate = $("<p>").text('Release Date: ' +data.releaseDate)
            $(".movie-info").append(releaseDate);
           var runTime = $("<p>").text('Run Time: ' +data.runtimeStr);
           $(".movie-info").append(runTime);
