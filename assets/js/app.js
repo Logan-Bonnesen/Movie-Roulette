@@ -125,7 +125,7 @@ for (let i = 0; i < 6; i++) {
      imdbNumber = `${data.results[i].imdbID}`
      convertTitleToNumber.push(imdbNumber)
      console.log(imdbNumber);
-     document.getElementById('boxes').innerHTML = useAll;
+    //  document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
         $("#modal").addClass("is-active");
@@ -139,7 +139,7 @@ for (let i = 0; i < 6; i++) {
     })
      
 }
-
+$("#boxes").append(useAll);
 });
 }
 
