@@ -38,6 +38,19 @@ body {
     text-align: center;
 }
 
+#subTitle {
+    color: white;
+    text-align: center;
+}
+
+.movieText1 {
+    color: red;
+}
+
+.movieText2 {
+    color: yellow;
+}
+
 .custom-content {
     color: white;
     margin-top: 75px;
@@ -78,6 +91,10 @@ body {
     color: white;
     background-color: black;
     font-size: 20px;
+}
+
+.button3:hover {
+    border: 3px solid red;
 }
 
 .hero-body{
