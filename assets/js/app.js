@@ -82,8 +82,12 @@ var genre;
         genre = 80
     } else if(genreChoice === 'Mystery'){
         genre = 9648
-    } else {
+    } else if(genreChoice === 'Romance'){
         genre = 10749
+    } else {
+        alert("You did not select a genre!");
+        window.location.reload(true)
+        console.log("User did not select a genre.")
     }
  console.log(genre)
 
