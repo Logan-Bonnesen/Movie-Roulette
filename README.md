@@ -16,6 +16,14 @@
 * Implemented API fetch calls to [IMDB](https://imdb-api.com/) and [Streaming Availability](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
 
 # Screen Shots:
+
+# Opening Modal with initial service and genre selection options:
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/finalimg1.png?raw=true)
+# One of six random results from the selected service and genre:
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/finalimg2.png?raw=true)
+# Click the movie image to enable modal that provides additional movie details:
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/finalimg3.png?raw=true)
+
 <!-- # Opening Modal with initial service and genre selection options:
 ![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Logan/images/movie-roulette-homepage-screenshot.png)
 # One of six random results from the selected service and genre:
@@ -28,6 +36,7 @@
 <img src="images\movie-roulette-second-screenshot.png" alt="screenshot of options after search" height="500px" width="700px"/> 
 
 <img src="images\movie-modal-screenshot.png" alt="screenshot of movie modal" height="500px" width="700px"/> 
+
 
 
 
