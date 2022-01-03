@@ -99,14 +99,6 @@ var genre;
         $(".modal-alert").removeClass("is-active");
         window.location.reload(true)
 
-
-        // alert("You did not select a genre!");
-        
-        // console.log("User did not select a genre.")
-    })
-}
-
-    getTitle(service, genre)
     
 }   
 
