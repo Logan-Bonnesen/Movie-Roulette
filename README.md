@@ -17,11 +17,11 @@
 
 # Screen Shots:
 # Opening Modal with initial service and genre selection options:
-![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/image1.png?raw=true)
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Logan/images/movie-roulette-homepage-screenshot.png)
 # One of six random results from the selected service and genre:
-![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/image2.png?raw=true)
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Logan/images/movie-roulette-second-screenshot.png)
 # Click the movie image to enable modal that provides additional movie details:
-![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Tom/images/image3.png?raw=true)
+![Preview](https://github.com/Logan-Bonnesen/Movie-Roulette/blob/Logan/images/movie-modal-screenshot.png)
 
 # Deployed Website:
 [Movie Roulette](https://logan-bonnesen.github.io/Movie-Roulette/ )
