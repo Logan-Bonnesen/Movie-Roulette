@@ -108,7 +108,7 @@ function getTitle(service, genre) {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-		"x-rapidapi-key": "370a1fc206msh9eb5024f3dbeaedp169a7djsna86f9b9fc615"
+		"x-rapidapi-key": "5905109ec5msh57a2f97f237f422p10f34bjsn176a53ffa732"
 	}
 })
 .then(function(response) {
@@ -158,7 +158,7 @@ function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
      
         
         
-    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey + '/' + imdbNumber;
+    var queryUrl = 'https://imdb-api.com/en/API/Title/' + imdbApiKey2 + '/' + imdbNumber;
     fetch(queryUrl)
         .then(function (response) {
             return response.json();
