@@ -153,6 +153,13 @@ for (let i = 0; i < 6; i++) {
 
 });
 }
+var modal = $("#modal")
+var modalBackgroundClose = $(".modal-background")
+modalBackgroundClose.on("click", function(){
+    // console.log("this is being clicked")
+modal.removeClass("is-active")
+
+})
 
 function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
      
