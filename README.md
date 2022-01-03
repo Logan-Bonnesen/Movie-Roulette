@@ -25,9 +25,11 @@
 
 <img src="images\movie-roulette-homepage-screenshot.png" alt="screenshot of movie roulette homepage" height="500px" width="700px"/> 
 
+<img src="images\movie-roulette-second-screenshot.png" alt="screenshot of options after search" height="500px" width="700px"/> 
+
 <img src="images\movie-modal-screenshot.png" alt="screenshot of movie modal" height="500px" width="700px"/> 
 
-<img src="images\movie-roulette-second-screenshot.png" alt="screenshot of options after search" height="500px" width="700px"/> 
+
 
 # Deployed Website:
 [Movie Roulette](https://logan-bonnesen.github.io/Movie-Roulette/ )
