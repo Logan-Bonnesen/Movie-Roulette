@@ -1,4 +1,4 @@
-var imdbApiKey = 'k_flc35q5h'
+// var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 var useAll = '';
 var userServiceChoice = "";
@@ -94,12 +94,11 @@ var genre;
     } else if(genreChoice === 'Romance'){
         genre = 10749
     } else {
-        alert("You did not select a genre!");
+        $(".modal-alert").addClass("is-active");
+    $("#cancel-button").click(function() {
+        $(".modal-alert").removeClass("is-active");
         window.location.reload(true)
-        console.log("User did not select a genre.")
-    }
 
-    getTitle(service, genre)
     
 }   
 
