@@ -1,4 +1,4 @@
-var imdbApiKey = 'k_flc35q5h'
+// var imdbApiKey = 'k_flc35q5h'
 var imdbApiKey2 = 'k_5yosmfb0'
 var useAll = '';
 var userServiceChoice = "";
@@ -8,11 +8,9 @@ let serviceHistory = [];
 
 
 
-
-
     //capture user selction on the service
 userServiceChoice = $('#service1').change(function() {
-    console.log($(this).val());
+    console.log('User Selected: ' + $(this).val());
     userServiceChoice = $(this).val();
     serviceHistory.push(userServiceChoice);
     localStorage.setItem('Service', JSON.stringify(serviceHistory))
@@ -20,22 +18,26 @@ userServiceChoice = $('#service1').change(function() {
 });
 
 userGenreChoice = $('#genre1').change(function(){
+    console.log('User Selected: ' + $(this).val());
     userGenreChoice = $(this).val();
     genreHistory.push(userGenreChoice);
     localStorage.setItem('Genre', JSON.stringify(genreHistory))
-
-
     return userGenreChoice
 })
 
 
 $('#sButton').click(function(){
+
     $(".launchModal").remove()
   
-    console.log(userGenreChoice)
+    console.log('User Selected: ' + userGenreChoice);
+    console.log('User Selected: ' + userServiceChoice);
+
+    document.getElementById('viewingService').innerHTML = "Selected: " +userServiceChoice;
+    document.getElementById('viewingGenre').innerHTML = "Viewing: " +userGenreChoice;
+
     userInput(userServiceChoice, userGenreChoice)
 })
-
 
 
 
@@ -51,17 +53,24 @@ $(".modal-close").click(function() {
     $("#modalMain").removeClass("is-active");
     var serv = $('#service').val();
     var service =serv.toLowerCase()
-    console.log(service)
+
+    console.log('User Selected: ' + serv)
     
     
     var genreChoice = $('#genre').val();
+
+    console.log('User Selected: ' + genreChoice);
+
+    document.getElementById('viewingGenre').innerHTML = "Viewing: " +genreChoice;
+
+    document.getElementById('viewingService').innerHTML = "Selected: " +serv;
+
     userInput(service, genreChoice)
  });
-///////////////////////////////////////////
+
 
 function userInput(service, genreChoice) {
 var genre;
-
 
 
     if (genreChoice === 'Adventure'){
@@ -85,16 +94,24 @@ var genre;
     } else if(genreChoice === 'Romance'){
         genre = 10749
     } else {
-        alert("You did not select a genre!");
+        $(".modal-alert").addClass("is-active");
+    $("#cancel-button").click(function() {
+        $(".modal-alert").removeClass("is-active");
         window.location.reload(true)
-        console.log("User did not select a genre.")
-    }
- console.log(genre)
+
+
+        // alert("You did not select a genre!");
+        
+        // console.log("User did not select a genre.")
+    })
+}
 
     getTitle(service, genre)
     
+}   
 
-}       
+
+
 var convertTitleToNumber
 var videoArray
 function getTitle(service, genre) {
@@ -102,7 +119,7 @@ function getTitle(service, genre) {
     videoArray = []
     var randPage = Math.floor(Math.random() *14)
     var usePage = (randPage + 1);
-    console.log(randPage);
+    console.log('Random Page: ' + randPage);
 
         fetch(`https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=${service}&type=movie&genre=${genre}&page=${usePage}&output_language=en&language=en`, {
 	"method": "GET",
@@ -133,7 +150,7 @@ for (let i = 0; i < 6; i++) {
      videoNumber = `${data.results[i].video}`
      convertTitleToNumber.push(imdbNumber)
      videoArray.push(videoNumber)
-     console.log(imdbNumber);
+     console.log('IMDB Number is: ' + imdbNumber);
      document.getElementById('boxes').innerHTML = useAll;
 
     $(".launchModal").click(function() {
@@ -153,6 +170,12 @@ for (let i = 0; i < 6; i++) {
 
 });
 }
+var modal = $("#modal")
+var modalBackgroundClose = $(".modal-background")
+modalBackgroundClose.on("click", function(){
+modal.removeClass("is-active")
+
+})
 
 function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
      
@@ -192,11 +215,10 @@ function getInfo(imdbNumber, videoNumber) { ///// 2nd IMDB API CALL //////
             });
           });
 
-          console.log(data.title);
-          console.log(data.runtimeStr);
-          console.log(data.releaseDate);
-          console.log(data.imDbRating);
-          console.log(data.tagline);
+          console.log('Title: ' + data.title);
+          console.log('Runtime: ' + data.runtimeStr);
+          console.log('Release Date: ' + data.releaseDate);
+          console.log('IMDB Rating: ' + data.imDbRating);
 
         })
     } 

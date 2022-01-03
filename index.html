@@ -27,9 +27,10 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="control mr-2">
+                <h2 id = "viewingService" class = "viewingService"></h2>
                 <div class="select">
                   <select id='service1'>
-                    <option>Select Service</option>
+                    <option id='serviceOption'>Select Service</option>
                     <option value='disney'>Disney</option>
                     <option value='hbo'>HBO</option>
                     <option value='hulu'>Hulu</option>
@@ -40,9 +41,10 @@
                 </div>
               </div>
               <div class="control mr-2">
+                <h2 id = "viewingGenre" class = "viewingGenre"></h2>
                 <div class="select">
                   <select id='genre1'>
-                    <option>Select Genre</option>
+                    <option id ='genreOption'>Select Genre</option>
                     <option value='Adventure'>Adventure</option>
                     <option value='Biography'>Biography</option>
                     <option value='Drama'>Drama</option>
@@ -166,10 +168,23 @@
     </div>
     
 
+
+    <div class="modal modal-alert">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <section class="modal-card-body">
+          Please select a genre!
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button" id="cancel-button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+
   </section>
 
 
-d
+
 
   <footer class="footer-fluid notification is-dark ">
     <div class="content has-text-centered notification is-dark">
@@ -185,4 +200,3 @@ d
 </body>
 
 </html>
-
